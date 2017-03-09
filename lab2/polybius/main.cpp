@@ -38,10 +38,3 @@ int main(int argc, char* argv[]){
     input_file.close();
     return 0;
 }
-
-
-
-
-myfile << "Tekst zapisany w pliku" << endl;
-
-myfile.close();
