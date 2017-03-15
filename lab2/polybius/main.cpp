@@ -18,14 +18,14 @@ int main(int argc, char* argv[]){
 
     if(argc!=4) std::cout<<"Zla ilosc parametrow";
     else {
-        if (argv[3]==1){
+        if (*argv[3]==1){
             std::string message;
             input_file>>message;
             output_file<<PolybiusCrypt(message);
             std::cout<<"Wiadomosc zapisana do pliku ";
         }
         else {
-            if(argv[3]==0){
+            if(*argv[3]==0){
                 std::string crypted;
                 input_file>>crypted;
                 output_file<<PolybiusDecrypt(crypted);
