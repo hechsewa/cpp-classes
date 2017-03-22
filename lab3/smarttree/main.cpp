@@ -8,5 +8,6 @@
 using namespace datastructures;
 
 int main(){
+    RestoreTree("[none]");
     return 0;
 }

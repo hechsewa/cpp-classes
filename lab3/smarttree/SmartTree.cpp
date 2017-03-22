@@ -55,43 +55,36 @@ std::string datastructures::DumpTree(const std::unique_ptr <SmartTree> &tree) {
     return dump;
 }
 
-int ToInt(const std::string &num) {
-    std::stringstream stream(num);
-    int n;
-    stream >> n;
-    return n;
+std::unique_ptr <SmartTree> datastructures::RestoreTree(const std::string &tree){
+    std::unique_ptr <SmartTree> ptr = std::make_unique<SmartTree>();
+    int counter=0;
+    std::regex pattern {R"([(d+|none)\s(.*))"};
+    std::smatch matches;
+
+    if(regex_match(tree, matches,pattern)){
+        if (matches[1] == "none") ptr = nullptr;
+        else {
+            int first_val  = std::stoi(matches[1]);
+            ptr->value = first_val;
+
+            std::string leftChild;
+            std::string rightChild;
+            std::string children = matches[2].str();
+            for (int i=0; i<children.length(); i++) {
+                if (tree[i] ==  '[') counter++;
+                if (tree[i] ==  ']') counter--;
+                if (counter == 0) {
+                    leftChild = children.substr(0, i);
+                    rightChild = children.substr(i + 2, children.length() - 1);
+                }
+            }
+            InsertLeftChild(move(ptr),RestoreTree(leftChild));
+            InsertRightChild(move(ptr),RestoreTree(rightChild));
+        }
+
+}
+    return ptr;
 }
 
-std::unique_ptr<SmartTree> datastructures::ReadData(const std::string& tree, int * i) {
-    std::string tmpvalue = "";
-    std::unique_ptr<SmartTree> root = std::make_unique<SmartTree>();
-    if (tree[*i] == '-') {
-        tmpvalue = "-";
-        ++(*i);
-    }
-    while (tree[(*i)] >= '0' && tree[(*i)] <= '9' && (*i) < tree.length()) {
-        tmpvalue += tree[(*i)];
-        ++(*i);
-    }
-    if (tmpvalue != "") {
-        root = CreateLeaf(ToInt(tmpvalue));
-        (*i) += 2; //skip space and opening character
-        root->left = ReadData(tree, i);
-        root->right = ReadData(tree, i);
-    }
-    else {
-        root = nullptr;
-        while ((*i) < tree.length() && tree[(*i)] != '[') ++(*i);
-        ++(*i);
-    }
-    return root;
-}
-
-std::unique_ptr <SmartTree> datastructures::RestoreTree(const std::string &tree) {
-    std::unique_ptr<SmartTree> root = std::make_unique<SmartTree>();
-    int i = 1;
-    root = ReadData(tree, &i);
-    return root;
-}
 
 
