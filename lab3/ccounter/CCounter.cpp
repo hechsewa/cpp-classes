@@ -1,15 +1,24 @@
 //
-// Created by hushmans on 15.03.17.
+// Created by Student on 16/03/17.
 //
-#include <string>
-#include <memory>
-#include <map>
+
 #include "CCounter.h"
+#include<iostream>
 
-namespace Counter {
+
+namespace ccounter {
+
+    struct Counter {
+        std::map<std::string, int> countStoI;
+    };
+
     std::unique_ptr<Counter> Init(){
-
+        std::unique_ptr<Counter> newStruct(new Counter);
+        return newStruct;
     }
 
 
+    void Inc(std::string key, std::unique_ptr<Counter> *counter) {
+//        counter->
+    }
 }
