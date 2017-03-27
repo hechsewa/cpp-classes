@@ -14,19 +14,18 @@ namespace geometry {
     using ::std::sqrt;
 
     class Square {
+
     public:
-        Square(Point, Point);
         double Circumference();
-        double Area;
+        double Area();
+        Square(Point p1, Point p2, Point p3, Point p4);
 
     private:
-        Point x_;
-        Point y_;
-        Point z_;
-        Point h_;
+        Point vertices[4];
 
     };
-}
+
+};
 
 
 #endif //JIMP_EXERCISES_SQUARE_H

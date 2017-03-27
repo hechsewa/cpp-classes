@@ -27,13 +27,11 @@ namespace geometry {
         //metody akcesorów są publiczne i tylko w przy ich pomocy
         //można się dostać z zewnątrz do pól klasy
         double GetX() const;
-
         double GetY() const;
 
         //metody seterów pozwalające zmienić stan obiektu
         //po jego zainicjalizowaniu
         void SetX(double x);
-
         void SetY(double y);
 
     private:

@@ -1,4 +1,4 @@
-project(square)
+project(geometry)
 
 set(HEDEAR_FILES Square.h)
 set(HEDEAR_FILES Point.h)
@@ -17,3 +17,4 @@ add_executable(point ${SOURCE_FILES} main.cpp)
 
 target_link_libraries(square libsquare)
 target_link_libraries(point libpoint)
+target_link_libraries(libsquare libpoint)
