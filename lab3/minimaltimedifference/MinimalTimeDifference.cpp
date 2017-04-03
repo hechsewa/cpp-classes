@@ -8,33 +8,36 @@
 #include <cmath>
 #include "MinimalTimeDifference.h"
 
+void minimaltimedifference::FromString(std::string string_m, unsigned int m) {
+    std::istringstream iss(string_m);
+    iss >> m;
+}
+
 unsigned int minimaltimedifference::ToMinutes(std::string time_HH_MM) {
-    unsigned int hour, min;
-    std::string string_h, string_m;
+    unsigned int min_count, min;
 
     std::regex pattern {R"((\d{1,2})\:+(\d{1,2}))"};
     std::string line (time_HH_MM);
     std::smatch matches;
+    std::string hour_str;
+    std::string minutes_str;
     if (regex_match(line, matches, pattern)) {
-        string_h = matches[1];
+        hour_str = matches[1];
         unsigned int h;
-        std::istringstream iss(string_h);
-        iss >> h;
+        minimaltimedifference::FromString(hour_str, h);
 
-        string_m = matches[2];
+        minutes_str = matches[2];
         unsigned int m;
-        std::istringstream pss(string_m);
-        pss >> m;
+        minimaltimedifference::FromString(minutes_str, m);
 
-        hour=h*60;
+        min_count=h*60;
         min=m;
     }
-    return hour+min;
+    return min_count+min;
 }
 
 unsigned int minimaltimedifference::MinimalTimeDifference(std::vector<std::string> times) {
     unsigned int min=20000,min2=0;
-    times.reserve(20000);
 
     for (unsigned int n = 0; n < times.size() - 1; n++) {
         for (unsigned int m = n+1; m < times.size(); m++) {
