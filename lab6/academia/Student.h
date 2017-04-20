@@ -5,6 +5,7 @@
 #ifndef JIMP_EXERCISES_STUDENT_H
 #define JIMP_EXERCISES_STUDENT_H
 
+#include "StudyYear.h"
 #include <iostream>
 using std::string;
 
@@ -23,7 +24,7 @@ namespace academia {
 
     private:
         std::string id_, first_name_, last_name_, program_;
-        StudentYear year_;
+        StudyYear year_;
     };
 }
 

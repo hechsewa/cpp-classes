@@ -13,15 +13,15 @@ namespace memorychunk {
     class MemoryChunk {
     public:
 
-        XXX();
-        XXX(int param);
-        XXX(const std::string name);
-        XXX(const XXX &xxx);
-        XXX(XXX &&xxx);
+        MemoryChunk();
+        MemoryChunk(int param);
+        MemoryChunk(const std::string name);
+        MemoryChunk(const MemoryChunk &mc);
+        MemoryChunk(MemoryChunk &&mc);
 
-        XXX &operator=(const XXX &xxx);
-        XXX &operator=(XXX &&xxx);
-        ~XXX();
+        MemoryChunk &operator=(const MemoryChunk &mc);
+        MemoryChunk &operator=(MemoryChunk &&mc);
+        ~MemoryChunk();
         MemoryChunk(size_t sz);
         int8_t *MemoryAt(size_t offset) const;
         size_t ChunkSize() const;
