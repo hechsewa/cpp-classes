@@ -6,3 +6,17 @@
 #include <algorithm>
 #include "MemoryChunk.h"
 
+using namespace std;
+
+namespace memorychunk {
+    MemoryChunk::~MemoryChunk(){
+        delete memory_;
+    }
+
+    MemoryChunk::MemoryChunk(size_t sz){
+        
+    }
+}
+
+
+

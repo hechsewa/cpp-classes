@@ -73,7 +73,7 @@ FUNCTION_THROW = 0x80
 FUNCTION_OVERRIDE = 0x100
 
 """
-These are currently unused.  Should really handle these properly at some point.
+These are currently unused.  Should really handle these properly at some point_op.
 
 TYPE_MODIFIER_INLINE   = 0x010000
 TYPE_MODIFIER_EXTERN   = 0x020000

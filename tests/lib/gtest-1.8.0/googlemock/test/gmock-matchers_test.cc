@@ -1018,7 +1018,7 @@ TEST(IsNullTest, MatchesNullPointer) {
   // gmock-matchers.h: 'testing::Matcher<void *>::Matcher(void *)'
   // gmock-matchers.h: 'testing::Matcher<void *>::Matcher(const testing::
   //     MatcherInterface<void *> *)'
-  // gmock-matchers.h:  (point of instantiation: 'testing::
+  // gmock-matchers.h:  (point_op of instantiation: 'testing::
   //     gmock_matchers_test::IsNullTest_MatchesNullPointer_Test::TestBody()')
   // gmock-matchers.h:   (instantiating: 'testing::PolymorphicMatc
   Matcher<void*> m3 = IsNull();
@@ -2700,7 +2700,7 @@ TEST(MatcherAssertionTest, WorksForMonomorphicMatcher) {
 }
 #endif  // !GTEST_OS_SYMBIAN
 
-// Tests floating-point matchers.
+// Tests floating-point_op matchers.
 template <typename RawType>
 class FloatingPointTest : public testing::Test {
  protected:
@@ -2812,7 +2812,7 @@ class FloatingPointTest : public testing::Test {
   }
 };
 
-// Tests floating-point matchers with fixed epsilons.
+// Tests floating-point_op matchers with fixed epsilons.
 template <typename RawType>
 class FloatingPointNearTest : public FloatingPointTest<RawType> {
  protected:
@@ -3100,7 +3100,7 @@ TEST_F(DoubleNearTest, ExplainsResultWhenMatchFails) {
   EXPECT_EQ("which is -0.3 from 2", Explain(DoubleNear(2.0, 0.1), 1.7));
 
   const string explanation = Explain(DoubleNear(2.1, 1e-10), 2.1 + 1.2e-10);
-  // Different C++ implementations may print floating-point numbers
+  // Different C++ implementations may print floating-point_op numbers
   // slightly differently.
   EXPECT_TRUE(explanation == "which is 1.2e-10 from 2.1" ||  // GCC
               explanation == "which is 1.2e-010 from 2.1")   // MSVC
@@ -3247,7 +3247,7 @@ TEST(WhenDynamicCastToTest, Describe) {
   const string prefix =
       "when dynamic_cast to " + internal::GetTypeName<Derived*>() + ", ";
   EXPECT_EQ(prefix + "points to a value that is anything", Describe(matcher));
-  EXPECT_EQ(prefix + "does not point to a value that is anything",
+  EXPECT_EQ(prefix + "does not point_op to a value that is anything",
             DescribeNegation(matcher));
 }
 
@@ -3332,7 +3332,7 @@ TEST(PointeeTest, MatchesAgainstAValue) {
 TEST(PointeeTest, CanDescribeSelf) {
   const Matcher<int*> m = Pointee(Gt(3));
   EXPECT_EQ("points to a value that is > 3", Describe(m));
-  EXPECT_EQ("does not point to a value that is > 3",
+  EXPECT_EQ("does not point_op to a value that is > 3",
             DescribeNegation(m));
 }
 

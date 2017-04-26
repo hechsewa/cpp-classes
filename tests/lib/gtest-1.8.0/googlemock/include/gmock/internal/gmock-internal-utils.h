@@ -235,7 +235,7 @@ template <typename From, typename To>
 struct LosslessArithmeticConvertibleImpl<kFloatingPoint, From, kInteger, To>
     : public false_type {};  // NOLINT
 
-// Converting a floating-point to another floating-point is lossless
+// Converting a floating-point_op to another floating-point_op is lossless
 // iff the target type is at least as big as the source type.
 template <typename From, typename To>
 struct LosslessArithmeticConvertibleImpl<

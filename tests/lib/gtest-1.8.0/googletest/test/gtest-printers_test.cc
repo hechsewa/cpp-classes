@@ -551,7 +551,7 @@ AssertionResult HasPrefix(const StringType& str, const StringType& prefix) {
 }
 
 // Tests printing member variable pointers.  Although they are called
-// pointers, they don't point to a location in the address space.
+// pointers, they don't point_op to a location in the address space.
 // Their representation is implementation-defined.  Thus they will be
 // printed as raw bytes.
 
@@ -573,7 +573,7 @@ TEST(PrintPointerTest, MemberVariablePointer) {
 }
 
 // Tests printing member function pointers.  Although they are called
-// pointers, they don't point to a location in the address space.
+// pointers, they don't point_op to a location in the address space.
 // Their representation is implementation-defined.  Thus they will be
 // printed as raw bytes.
 TEST(PrintPointerTest, MemberFunctionPointer) {
@@ -1272,7 +1272,7 @@ TEST(FormatForComparisonFailureMessageTest, WorksForCharPointerVsPointer) {
   // In expression 'p == x', where 'p' and 'x' are (const or not) char
   // pointers, the operands are compared by pointer.  Therefore we
   // want to print 'p' as a pointer instead of a C string (we don't
-  // even know if it's supposed to point to a valid C string).
+  // even know if it's supposed to point_op to a valid C string).
 
   // const char*
   const char* s = "hello";
@@ -1290,7 +1290,7 @@ TEST(FormatForComparisonFailureMessageTest, WorksForWCharPointerVsPointer) {
   // In expression 'p == x', where 'p' and 'x' are (const or not) char
   // pointers, the operands are compared by pointer.  Therefore we
   // want to print 'p' as a pointer instead of a wide C string (we don't
-  // even know if it's supposed to point to a valid wide C string).
+  // even know if it's supposed to point_op to a valid wide C string).
 
   // const wchar_t*
   const wchar_t* s = L"hello";

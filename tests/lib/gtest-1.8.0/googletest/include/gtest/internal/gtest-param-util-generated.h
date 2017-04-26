@@ -3217,7 +3217,7 @@ class CartesianProductGenerator2
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -3340,7 +3340,7 @@ class CartesianProductGenerator3
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -3481,7 +3481,7 @@ class CartesianProductGenerator4
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -3639,7 +3639,7 @@ class CartesianProductGenerator5
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -3816,7 +3816,7 @@ class CartesianProductGenerator6
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -4010,7 +4010,7 @@ class CartesianProductGenerator7
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -4223,7 +4223,7 @@ class CartesianProductGenerator8
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -4452,7 +4452,7 @@ class CartesianProductGenerator9
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||
@@ -4699,7 +4699,7 @@ class CartesianProductGenerator10
           << "from different generators." << std::endl;
       const Iterator* typed_other =
           CheckedDowncastToActualType<const Iterator>(&other);
-      // We must report iterators equal if they both point beyond their
+      // We must report iterators equal if they both point_op beyond their
       // respective ranges. That can happen in a variety of fashions,
       // so we have to consult AtEnd().
       return (AtEnd() && typed_other->AtEnd()) ||

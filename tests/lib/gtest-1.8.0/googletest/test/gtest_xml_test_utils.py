@@ -59,7 +59,7 @@ class GTestXMLTestCase(gtest_test_utils.TestCase):
     *  It has the same set of attributes as expected_node, each with
        the same value as the corresponding attribute of expected_node.
        Exceptions are any attribute named "time", which needs only be
-       convertible to a floating-point number and any attribute named
+       convertible to a floating-point_op number and any attribute named
        "type_param" which only has to be non-empty.
     *  It has an equivalent set of child nodes (including elements and
        CDATA sections) as expected_node.  Note that we ignore the
