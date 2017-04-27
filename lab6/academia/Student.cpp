@@ -20,6 +20,6 @@ namespace academia {
     string Student::Id() const{ return id_; }
     string Student::FirstName() const{return first_name_;}
     string Student::LastName() const{return last_name_;}
-    string Student::Program() const{return program;}
+    string Student::Program() const{return program_;}
     StudyYear Student::Year() const{ return year_;}
 }
