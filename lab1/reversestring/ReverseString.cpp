@@ -1,7 +1,11 @@
 //
 // Created by mat on 04.03.17.
 //
+<<<<<<< .merge_file_KvvTLh
 #include <ReverseString.h>
+=======
+#include <reverse.h>
+>>>>>>> .merge_file_TYx4Rk
 
 std::string reverse(std::string str){
     if (str.length()==0 || str.length()==1) return str;
