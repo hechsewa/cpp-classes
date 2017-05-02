@@ -1,16 +1,13 @@
-//
-// Created by hushmans on 05.04.17.
-//
 
-#include "Point.h"
+#include "PointO.h"
 #include <iostream>
+
 using namespace std;
 
 int main(){
-    Point a;
+    Point a,b;
     a.SetX(16);
-    a.SetY(2);
-
-    cout<<a<<endl<<a;
-    return 0;
+    a.SetY(22);
+    b.SetY(2);
+    cout<<a<<endl<<b;
 }
