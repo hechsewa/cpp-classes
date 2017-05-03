@@ -2,8 +2,6 @@
 // Created by mat on 04.03.17.
 //
 #include <ReverseString.h>
-#include <iostream>
-using namespace std;
 
 std::string reverse(std::string str){
     if (str.length()==0 || str.length()==1) return str;
