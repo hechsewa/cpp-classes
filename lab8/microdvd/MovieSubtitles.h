@@ -36,7 +36,7 @@ namespace moviesubs {
 
         SubRipSubtitles()=default;
     private:
-        bool CompareTimes(const std::smatch &matches);
+        void CompareTimes(std::smatch matches, std::string str, int counter, int delay);
     };
 
     /**********************ErrorCases******************************/
