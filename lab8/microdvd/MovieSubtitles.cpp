@@ -56,24 +56,25 @@ namespace moviesubs{
 
         while(getline(*in,str,'\n')){
             ++counter;
-            if(counter!=std::stoi(str))
-                throw OutOfOrderFrames();
-            (*out)<<str<<'\n';
+            if(counter!=std::stoi(str)){
+                throw OutOfOrderFrames(); }
+
+            (*out)<<str <<'\n';
             getline(*in, str, '\n');
 
             if(std::regex_search(str, matches, pattern)){
                 CompareTimes(matches, str, counter, delay);
-                (*out)<<matches[1]<<":"<<matches[2]<<":";
+                (*out)<<matches[1] << ":" << matches[2] << ":";
                 int milisec=std::stoi(matches[4])+delay;
-                if(milisec<0)
-                    throw NegativeFrameAfterShift(str);
+                if(milisec<0) {
+                    throw NegativeFrameAfterShift(str); }
                 /******start subtitles time******/
                 if(milisec<1000){
                     std::string tmp = std::to_string(milisec);
                     while(tmp.size()<3){
-                        tmp = '0'+ tmp;
+                        tmp='0'+tmp;
                     }
-                    (*out)<<matches[3]<<","<<matches[4]<<"-->";
+                    (*out)<<matches[3]<<","<< tmp <<" --> ";
                 }
                 else {
                     int sec = std::stoi(matches[3])+milisec/1000;
@@ -86,7 +87,7 @@ namespace moviesubs{
                     while(tmp_sec.size()<2) {
                         tmp_sec = '0' + tmp_sec;
                     }
-                    (*out)<<tmp_sec<<","<<tmp_ms<<"-->";
+                    (*out)<<tmp_sec<<","<<tmp_ms<<" --> ";
                 }
                 /*****end subtitles time*****/
                 (*out)<<matches[5]<<":"<<matches[6]<<":";
@@ -96,7 +97,7 @@ namespace moviesubs{
                     while(tmp_end_ms.size()<3){
                         tmp_end_ms='0'+tmp_end_ms;
                     }
-                    (*out)<<matches[7]<<","<<tmp_end_ms<<'\n';
+                    (*out)<<matches[7]<<","<<tmp_end_ms<<" --> ";
                 }
                 else{
                     int sec = std::stoi(matches[7])+milisec/1000;
@@ -116,10 +117,10 @@ namespace moviesubs{
             else {
                 std::regex letters {R"([a-zA-Z]+)"};
                 std::smatch letters_matches;
-                if(std::regex_search(str,letters_matches,letters))
-                    throw MissingTimeSpecification();
-                else
-                    throw InvalidSubtitleLineFormat();
+                if(std::regex_search(str,letters_matches,letters)){
+                    throw MissingTimeSpecification();}
+                else {
+                    throw InvalidSubtitleLineFormat(); }
             }
 
             while(str!=""){
@@ -136,11 +137,11 @@ namespace moviesubs{
         int min=60*60*1000;
         int sec=60*1000;
         int ms=1000;
-        long start = std::stoi(matches[1])*min + std::stoi(matches[2])*sec + std::stoi(matches[3])*ms + std::stoi(matches[4]);
-        long end = std::stoi(matches[5])*min + std::stoi(matches[6])*sec + std::stoi(matches[7])*ms + std::stoi(matches[8]);
-        if (end<start)
+        long start_time = std::stoi(matches[1])*min + std::stoi(matches[2])*sec + std::stoi(matches[3])*ms + std::stoi(matches[4]);
+        long end_time = std::stoi(matches[5])*min + std::stoi(matches[6])*sec + std::stoi(matches[7])*ms + std::stoi(matches[8]);
+        if (end_time<start_time)
             throw SubtitleEndBeforeStart(counter, str);
-        if (start+delay<0 or end+delay<0)
+        if (start_time+delay<0 or end_time+delay<0)
             throw NegativeFrameAfterShift(str);
     }
 
