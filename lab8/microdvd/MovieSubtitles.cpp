@@ -53,14 +53,14 @@ namespace moviesubs{
         //matches[1]:matches[2]:matches[3],matches[4] --> matches[5]:matches[6]:matches[7], matches[8]
         int counter=0;
         std::smatch matches;
-        
+
         while(getline(*in,str,'\n')){
             ++counter;
             if(counter!=std::stoi(str))
                 throw OutOfOrderFrames();
             (*out)<<str<<'\n';
             getline(*in, str, '\n');
-            
+
             if(std::regex_search(str, matches, pattern)){
                 CompareTimes(matches, str, counter, delay);
                 (*out)<<matches[1]<<":"<<matches[2]<<":";
@@ -121,11 +121,11 @@ namespace moviesubs{
                 else
                     throw InvalidSubtitleLineFormat();
             }
-            
+
             while(str!=""){
                 getline(*in,str,'\n');
                 (*out)<<str;
-                if(in->eof()!=NULL){
+                if(!in->eof()){
                     (*out)<<'\n';
                 }
             }
