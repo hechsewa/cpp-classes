@@ -5,6 +5,8 @@
 
 #include <gtest/gtest.h>
 #include <array>
+#include <vector>
+#include <utility>
 #include <memory>
 #include <MemLeakTest.h>
 #include <Algo.h>

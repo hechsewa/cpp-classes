@@ -47,7 +47,10 @@ namespace algo {
     }
 
     std::vector<std::string> MapToString(const std::vector<double> &v) {
-        return vector<string>();
+        std::vector<std::string> vec;
+        std::transform(v.begin(), v.end(), vec.begin(), [](double c){return std::to_string(c);} );
+        return vec;
+
     }
 
     std::string Join(const std::string &joiner, const std::vector<double> &v) {
@@ -63,7 +66,11 @@ namespace algo {
     }
 
     bool Contains(const std::vector<int> &v, int element) {
-        return false;
+        auto container = std::find(v.begin(), v.end(), element);
+        if (container != v.end()){
+            return true;
+        }
+        else return false;
     }
 
     bool ContainsKey(const std::map<string, int> &v, const std::string &key) {
@@ -83,11 +90,13 @@ namespace algo {
     }
 
     void InitializeWith(int initial_value, std::vector<int> *v) {
-
+        std::fill(v->begin(), v->end(),initial_value);
     }
 
     std::vector<int> InitializedVectorOfLength(int length, int initial_value) {
-        return vector<int>();
+        std::vector<int> v1;
+        std::fill_n(v1.begin(), length, initial_value);
+        return v1;
     }
 
     void CopyInto(const std::vector<int> &v, int n_elements, std::vector<int> *out) {
