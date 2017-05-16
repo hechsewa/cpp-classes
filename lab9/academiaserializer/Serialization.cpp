@@ -33,7 +33,6 @@ namespace academia {
     }
 
 
-
     /*****XmlSerializer ***********************/
 
     void XmlSerializer::IntegerField(const std::string &field_name, int value) {
@@ -96,7 +95,7 @@ namespace academia {
 
     void JsonSerializer::StringField(const std::string &field_name, const std::string &value) {
         comma_thrower();
-        (*out_)<<"\"" << field_name << "\": " << value;
+        (*out_)<<"\"" << field_name << "\": \"" << value << "\"";
     }
 
     void JsonSerializer::BooleanField(const std::string &field_name, bool value) {
@@ -118,7 +117,7 @@ namespace academia {
             is_first=true;
         }
         for(const Serializable &i: value){
-            SerializableField(" ", i);
+            SerializableField("", i);
         }
         (*out_)<<"]";
     }

@@ -77,7 +77,9 @@ namespace academia {
     class JsonSerializer : public Serializer {
     public:
         JsonSerializer(){};
-        JsonSerializer(std::ostream *out):Serializer(out_){};
+        JsonSerializer(std::ostream *out):Serializer(out){
+            is_first=true;
+        };
         virtual ~JsonSerializer(){};
 
         void comma_thrower();
@@ -99,7 +101,7 @@ namespace academia {
 
         void Footer(const std::string &object_name) override;
     private:
-        bool is_first=true;
+        bool is_first;
 
     };
 
@@ -114,7 +116,7 @@ namespace academia {
         };
 
         Room(int id_, const string &name_, Room::Type type): id_(id_), name_(name_), room_(type) {}
-        void Serialize(Serializer *ser) const override;
+        void Serialize(Serializer *item) const override;
         std::string TypeToString(Type type) const;
 
     private:
