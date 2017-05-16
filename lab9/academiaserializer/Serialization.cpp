@@ -142,7 +142,7 @@ namespace academia {
 
     /********************BUILDING ***************************/
 
-    Building::Building(int id_, const std::string &name_, const std::initializer_list<Room> &rooms): id_(id_), name_(name_), rooms_(rooms) {
+    Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> v): id_(id_), name_(name_), rooms_(v){
     }
 
     void Building::Serialize(Serializer *item) const {

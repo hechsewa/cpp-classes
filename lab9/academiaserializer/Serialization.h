@@ -128,14 +128,14 @@ namespace academia {
     class Building : public Serializable {
     public:
         Building(){};
-        Building(int id_, const std::string &name_, const std::initializer_list<Room> &rooms_);
+        Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> v);
         void Serialize(Serializer *item) const override;
         virtual ~Building(){};
         int Id(){return id_;}
     private:
         int id_;
         std::string name_;
-        std::vector<Room> rooms_;
+        std::vector<std::reference_wrapper<const Serializable>> rooms_;
     };
 
 };
