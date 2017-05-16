@@ -117,7 +117,7 @@ namespace academia {
             is_first=true;
         }
         for(const Serializable &i: value){
-            i.Serialize(this);
+            SerializableField(" ", i);
         }
         (*out_)<<"]";
     }
@@ -142,15 +142,14 @@ namespace academia {
 
     /********************BUILDING ***************************/
 
-    Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> v): id_(id_), name_(name_), rooms_(v){
+    Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> rooms_): id_(id_), name_(name_), rooms_(rooms_){
     }
 
     void Building::Serialize(Serializer *item) const {
-        std::vector<std::reference_wrapper<const Serializable>> v(rooms_.begin(), rooms_.end());
         item->Header("building");
         item->IntegerField("id", id_);
         item->StringField("name", name_);
-        item->ArrayField("rooms", v);
+        item->ArrayField("rooms", rooms_);
         item->Footer("building");
     }
 }
