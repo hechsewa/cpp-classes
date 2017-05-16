@@ -107,6 +107,7 @@ namespace academia {
     void JsonSerializer::SerializableField(const std::string &field_name, const academia::Serializable &value) {
         comma_thrower();
         (*out_)<<field_name;
+        value.Serialize(this);
     }
 
     void JsonSerializer::ArrayField(const std::string &field_name,
@@ -123,10 +124,7 @@ namespace academia {
     }
 
     void JsonSerializer::Header(const std::string &object_name) {
-        if(!is_first){
-            (*out_)<<", ";
-        }
-        else is_first=true;
+        is_first=true;
         (*out_)<<"{";
     }
 
@@ -142,7 +140,7 @@ namespace academia {
 
     /********************BUILDING ***************************/
 
-    Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> rooms_): id_(id_), name_(name_), rooms_(rooms_){
+    Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> rooms): id_(id_), name_(name_), rooms_(rooms){
     }
 
     void Building::Serialize(Serializer *item) const {
