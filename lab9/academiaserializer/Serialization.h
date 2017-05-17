@@ -133,11 +133,34 @@ namespace academia {
         Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> rooms);
         void Serialize(Serializer *item) const override;
         virtual ~Building(){};
-        int Id(){return id_;}
+        int Id() const;
     private:
         int id_;
         std::string name_;
         std::vector<std::reference_wrapper<const Serializable>> rooms_;
+    };
+    
+    /**********************BUILDING REPOSITORY************************/
+
+    class BuildingRepository {
+    public:
+        BuildingRepository();
+        BuildingRepository(const std::initializer_list<Building> &building);
+        void StoreAll(Serializer *item) const;
+        void Add(const Building &build);
+        virtual  ~BuildingRepository(){};
+        std::experimental::optional<Building> operator[](int i) const{
+        for (auto &ii: building_) {
+            if (ii.Id() == i) {
+                return std::experimental::make_optional(ii);
+            }
+        }
+            return std::experimental::optional<Building>();
+        }
+        
+    private:
+        std::vector<Building> building_;
+        
     };
 
 };

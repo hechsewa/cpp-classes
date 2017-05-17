@@ -141,6 +141,10 @@ namespace academia {
 
     Building::Building(int id_, const std::string &name_, std::vector<std::reference_wrapper<const Serializable>> rooms): id_(id_), name_(name_), rooms_(rooms){
     }
+    
+    int Building::Id() const{
+        return id_;
+    }
 
     void Building::Serialize(Serializer *item) const {
         item->Header("building");
@@ -149,5 +153,36 @@ namespace academia {
         item->ArrayField("rooms", rooms_);
         item->Footer("building");
     }
+
+    /*********BUILDING REPOSITORY****************************/
+
+    
+
+    void BuildingRepository::StoreAll(Serializer *item) const {
+        item->Header("building_repository");
+        std::vector<std::reference_wrapper<const Serializable>> building;
+        for(const Serializable &ii: building_){
+            building.push_back(ii);
+        }
+        item->ArrayField("buildings", building);
+        item->Footer("building_repository");
+
+    }
+
+    BuildingRepository::BuildingRepository() {
+        building_.clear();
+    }
+
+    BuildingRepository::BuildingRepository(const std::initializer_list<Building> &building) {
+        for (const Building &build: building){
+            building_.push_back(build);
+        }
+
+    }
+
+    void BuildingRepository::Add(const Building &build) {
+        building_.push_back(build);
+    }
+    
 }
 
