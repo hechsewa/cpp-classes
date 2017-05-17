@@ -38,9 +38,9 @@ size_t academia::Schedule::Size() const {
     return schedule_.size();
 }
 
-std::vector<int> academia::Schedule::AvailableTimeSlots(int time_slots) const {
+std::vector<int> academia::Schedule::AvailableTimeSlots(int n_time_slots) const {
     std::vector<int> out;
-    for (int i=1; i<time_slots+1; ++i){
+    for (int i=1; i<n_time_slots+1; ++i){
         if(!std::any_of(schedule_.begin(), schedule_.end(), [&i](const SchedulingItem &itg){return i==itg.TimeSlot();})){
             out.push_back(i);
         }
@@ -81,3 +81,13 @@ int academia::SchedulingItem::TimeSlot() const {
 int academia::SchedulingItem::Year() const {
     return year_;
 }
+
+/*************** GREEDY SCHEDULER *****************/
+
+/*academia::Schedule academia::GreedyScheduler::PrepareNewSchedule(const std::vector<int> &rooms,
+                                                                 const std::map<int, std::vector<int>> &teacher_courses_assignment,
+                                                                 const std::map<int, std::set<int>> &courses_of_year,
+                                                                 int n_time_slots) {
+    Schedule greedy;
+
+}*/

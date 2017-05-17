@@ -23,9 +23,27 @@ namespace academia {
 
     /*****SCHEDULER************/
 
-    class Scheduler {
+   /* class Scheduler {
+    public:
+        virtual Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment,
+                                    const std::map<int, std::set<int>> &courses_of_year, int n_time_slots)=0;
+        /*rooms - dostępne pomieszczenia
+        teacher_courses_assignment - rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
+        courses_of_year - kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
+        n_time_slots - ilość slotów czasowych
 
-    };
+    }; */
+
+    /************ GREEDY SCHEDULER ***************/
+
+    /*class GreedyScheduler:public Scheduler{
+    public:
+        Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment,
+                                    const std::map<int, std::set<int>> &courses_of_year, int n_time_slots) override;
+
+    private:
+
+    };*/
 
     /******** SCHEDULE ************/
     class SchedulingItem;
@@ -37,7 +55,7 @@ namespace academia {
         Schedule OfYear(int year) const;
         void InsertScheduleItem(const SchedulingItem &item);
         size_t Size() const;
-        std::vector<int> AvailableTimeSlots(int time_slots) const;
+        std::vector<int> AvailableTimeSlots(int n_time_slots) const;
         const SchedulingItem &operator[](const int &intg) const;
         bool CheckTime(const int &intg) const;
     private:
