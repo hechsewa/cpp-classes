@@ -50,7 +50,8 @@ namespace arrays {
 
     class RandomFill : public ArrayFill {
     public:
-        RandomFill(unique_ptr<default_random_engine> generate, unique_ptr<uniform_int_distribution<int>> distribute): generator_(move(generate)), distribution_(move(distribute)) {}
+        RandomFill(unique_ptr<default_random_engine> generate, unique_ptr<uniform_int_distribution<int>> distribute):
+                generator_(move(generate)), distribution_(move(distribute)) {}
 
         virtual int Value(int index) const override;
 
