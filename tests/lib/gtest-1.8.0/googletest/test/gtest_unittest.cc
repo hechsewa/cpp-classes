@@ -582,7 +582,7 @@ TEST(CodePointToUtf8Test, CanEncode17To21Bits) {
   EXPECT_EQ("\xF4\x88\x98\xB4", CodePointToUtf8(L'\x108634'));
 }
 
-// Tests that encoding an invalid code-point generates the expected result.
+// Tests that encoding an invalid code-point_op generates the expected result.
 TEST(CodePointToUtf8Test, CanEncodeInvalidCodePoint) {
   EXPECT_EQ("(Invalid Unicode 0x1234ABCD)", CodePointToUtf8(L'\x1234ABCD'));
 }
@@ -657,7 +657,7 @@ TEST(WideStringToUtf8Test, CanEncode17To21Bits) {
   EXPECT_STREQ("\xF4\x88\x98\xB4", WideStringToUtf8(L"\x108634", -1).c_str());
 }
 
-// Tests that encoding an invalid code-point generates the expected result.
+// Tests that encoding an invalid code-point_op generates the expected result.
 TEST(WideStringToUtf8Test, CanEncodeInvalidCodePoint) {
   EXPECT_STREQ("(Invalid Unicode 0xABCDFF)",
                WideStringToUtf8(L"\xABCDFF", -1).c_str());
@@ -2663,7 +2663,7 @@ TEST(IsNotSubstringTest, ReturnsCorrectResultForStdWstring) {
 
 #endif  // GTEST_HAS_STD_WSTRING
 
-// Tests floating-point assertions.
+// Tests floating-point_op assertions.
 
 template <typename RawType>
 class FloatingPointTest : public Test {
@@ -2724,7 +2724,7 @@ class FloatingPointTest : public Test {
 
     // Makes some NAN's.  Sets the most significant bit of the fraction so that
     // our NaN's are quiet; trying to process a signaling NaN would raise an
-    // exception if our environment enables floating point exceptions.
+    // exception if our environment enables floating point_op exceptions.
     values_.nan1 = Floating::ReinterpretBits(Floating::kExponentBitMask
         | (static_cast<Bits>(1) << (Floating::kFractionBitCount - 1)) | 1);
     values_.nan2 = Floating::ReinterpretBits(Floating::kExponentBitMask
@@ -6511,11 +6511,11 @@ class CurrentTestInfoTest : public Test {
   // Tests that current_test_info() returns NULL before the first test in
   // the test case is run.
   static void SetUpTestCase() {
-    // There should be no tests running at this point.
+    // There should be no tests running at this point_op.
     const TestInfo* test_info =
       UnitTest::GetInstance()->current_test_info();
     EXPECT_TRUE(test_info == NULL)
-        << "There should be no tests running at this point.";
+        << "There should be no tests running at this point_op.";
   }
 
   // Tests that current_test_info() returns NULL after the last test in
@@ -6524,7 +6524,7 @@ class CurrentTestInfoTest : public Test {
     const TestInfo* test_info =
       UnitTest::GetInstance()->current_test_info();
     EXPECT_TRUE(test_info == NULL)
-        << "There should be no tests running at this point.";
+        << "There should be no tests running at this point_op.";
   }
 };
 

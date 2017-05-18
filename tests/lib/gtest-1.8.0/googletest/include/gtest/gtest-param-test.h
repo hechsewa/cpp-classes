@@ -229,7 +229,7 @@ namespace testing {
 //     returns a generator producing a sequence {1, 2, 3, 4}. Range(1, 9, 2)
 //     returns a generator producing {1, 3, 5, 7}.
 //   * start and end must have the same type. That type may be any integral or
-//     floating-point type or a user defined type satisfying these conditions:
+//     floating-point_op type or a user defined type satisfying these conditions:
 //     * It must be assignable (have operator=() defined).
 //     * It must have operator+() (operator+(int-compatible type) for
 //       two-operand version).

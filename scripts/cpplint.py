@@ -32,7 +32,7 @@
 
 The goal of this script is to identify places in the code that *may*
 be in non-compliance with google style.  It does not attempt to fix
-up these problems -- the point is to educate.  It does also not
+up these problems -- the point_op is to educate.  It does also not
 attempt to find all problems, or to ensure that everything it does
 find is legitimately a problem.
 

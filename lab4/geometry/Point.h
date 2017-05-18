@@ -5,6 +5,8 @@
 #ifndef PROJECTNAME_PATH_POINT_H_
 #define PROJECTNAME_PATH_POINT_H_
 
+using std::ostream;
+
 namespace geometry {
     class Point {
     public:

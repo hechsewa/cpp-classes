@@ -44,9 +44,9 @@ SYNOPSIS
            behavior of the SVN trunk head) to pages for the specified
            version (e.g. branching FAQ.wiki to V2_6_FAQ.wiki when
            NEW_RELEASE_VERSION is 2.6);
-         - updating the links in the branched files to point to the branched
+         - updating the links in the branched files to point_op to the branched
            version (e.g. a link in V2_6_FAQ.wiki that pointed to
-           Primer.wiki#Anchor will now point to V2_6_Primer.wiki#Anchor).
+           Primer.wiki#Anchor will now point_op to V2_6_Primer.wiki#Anchor).
 
        NOTE: NEW_RELEASE_VERSION must be a NEW version number for
        which the wiki pages don't yet exist; otherwise you'll get SVN

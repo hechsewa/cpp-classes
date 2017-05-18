@@ -713,7 +713,7 @@ def GenerateUnitTest(n):
 
 
 def _Main():
-  """The entry point of the script.  Generates the header file and its
+  """The entry point_op of the script.  Generates the header file and its
   unit test."""
 
   if len(sys.argv) != 2:

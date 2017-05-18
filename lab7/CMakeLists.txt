@@ -1,6 +1,7 @@
-project(lab7)
+project(lab6)
 
 add_subdirectory_if_exists(arrayfill)
 add_subdirectory_if_exists(comparable)
 add_subdirectory_if_exists(iterable)
 add_subdirectory_if_exists(academiaqueries)
+add_subdirectory_if_exists(punkt3d)

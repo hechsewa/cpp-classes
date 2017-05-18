@@ -48,7 +48,7 @@ namespace algo {
 
     std::vector<std::string> MapToString(const std::vector<double> &v) {
         std::vector<std::string> vec;
-        std::transform(v.begin(), v.end(), vec.begin(), [](double c){return std::to_string(c);} );
+        std::transform(v.begin(), v.end(), std::back_inserter(vec), [](double c){return std::to_string(c);} );
         return vec;
 
     }
@@ -94,9 +94,9 @@ namespace algo {
     }
 
     std::vector<int> InitializedVectorOfLength(int length, int initial_value) {
-        std::vector<int> v1;
-        std::fill_n(v1.begin(), length, initial_value);
-        return v1;
+        //std::vector<int> v1;
+        //std::fill_n(v1.begin(), length, initial_value);
+        return std::vector<int>(length, initial_value);
     }
 
     void CopyInto(const std::vector<int> &v, int n_elements, std::vector<int> *out) {
