@@ -2,7 +2,6 @@
 // Created by Student on 11/05/17.
 //
 
-#include "Algo.h"
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -10,20 +9,21 @@
 #include <array>
 #include <set>
 #include <map>
+#include "Algo.h"
 
 using namespace std;
 
 namespace algo {
     std::set<string> Keys(const std::map<string, int> &m) {
-        //return nullptr;
+
     }
 
     std::set<string> Values(const std::map<string, int> &m) {
-        //return nullptr;
+
     }
 
     std::map<string, int> DivisableBy(const std::map<string, int> &m, int divisor) {
-        //return nullptr;
+
     }
 
     void SortInPlace(std::vector<int> *v) {
@@ -50,7 +50,6 @@ namespace algo {
         std::vector<std::string> vec;
         std::transform(v.begin(), v.end(), vec.begin(), [](double c){return std::to_string(c);} );
         return vec;
-
     }
 
     std::string Join(const std::string &joiner, const std::vector<double> &v) {
@@ -66,11 +65,8 @@ namespace algo {
     }
 
     bool Contains(const std::vector<int> &v, int element) {
-        auto container = std::find(v.begin(), v.end(), element);
-        if (container != v.end()){
-            return true;
-        }
-        else return false;
+        auto found = std::find(v.begin(), v.end(), element);
+        return (found != v.end());
     }
 
     bool ContainsKey(const std::map<string, int> &v, const std::string &key) {
@@ -94,9 +90,9 @@ namespace algo {
     }
 
     std::vector<int> InitializedVectorOfLength(int length, int initial_value) {
-        std::vector<int> v1;
-        std::fill_n(v1.begin(), length, initial_value);
-        return v1;
+        std::vector<int> vec;
+        std::fill_n(vec.begin(), length, initial_value);
+        return vec;
     }
 
     void CopyInto(const std::vector<int> &v, int n_elements, std::vector<int> *out) {
