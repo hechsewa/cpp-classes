@@ -21,18 +21,6 @@ using namespace std;
 
 namespace academia {
 
-    /*****SCHEDULER************/
-
-   /* class Scheduler {
-    public:
-        virtual Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment,
-                                    const std::map<int, std::set<int>> &courses_of_year, int n_time_slots)=0;
-        /*rooms - dostępne pomieszczenia
-        teacher_courses_assignment - rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
-        courses_of_year - kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
-        n_time_slots - ilość slotów czasowych
-
-    }; */
 
     /************ GREEDY SCHEDULER ***************/
 
@@ -93,6 +81,21 @@ namespace academia {
     public:
         NoViableSolutionFound(const string &__arg);
     };
+
+    /*****SCHEDULER************/
+
+    /* class Scheduler {
+     public:
+     virtual Scheduler(){};
+     virtual ~Scheduler(){};
+         virtual Schedule PrepareNewSchedule(const std::vector<int> &rooms, const std::map<int, std::vector<int>> &teacher_courses_assignment,
+                                     const std::map<int, std::set<int>> &courses_of_year, int n_time_slots)=0;
+         /*rooms - dostępne pomieszczenia
+         teacher_courses_assignment - rozpiska nauczycieli (klucz w mapie) i prowadząnych przez nich przedmiotów (wartosć w mapie)
+         courses_of_year - kursy (wartość w mapie) wymagane dla danego rocznika (klucz w mapie)
+         n_time_slots - ilość slotów czasowych
+
+     }; */
 }
 
 
