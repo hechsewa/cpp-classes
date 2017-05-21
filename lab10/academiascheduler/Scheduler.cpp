@@ -53,7 +53,7 @@ namespace academia {
         return out;
     }
 
-    const SchedulingItem &Schedule::operator[](int index) const {
+    const SchedulingItem & academia::Schedule::operator[](int index) const {
         return this->schedule_[index];
     }
 
