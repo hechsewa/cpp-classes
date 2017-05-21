@@ -44,7 +44,7 @@ namespace academia {
         void InsertScheduleItem(const SchedulingItem &item);
         size_t Size() const;
         std::vector<int> AvailableTimeSlots(int n_time_slots) const;
-        const SchedulingItem &operator[](const int &intg) const;
+        const SchedulingItem &operator[](int index) const;
         bool CheckTime(const int &intg) const;
     private:
         std::vector<SchedulingItem> schedule_;
