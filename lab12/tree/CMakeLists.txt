@@ -1,0 +1,13 @@
+
+project(tree)
+
+set(HEDEAR_FILES BinaryTree.h)
+set(SOURCE_FILES BinaryTree.cpp)
+
+add_library(libtree STATIC ${SOURCE_FILES})
+target_include_directories(libtree PUBLIC .)
+
+add_executable(tree ${SOURCE_FILES} main.cpp)
+
+target_link_libraries(tree libtree)
+

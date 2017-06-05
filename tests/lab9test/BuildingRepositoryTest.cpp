@@ -8,6 +8,8 @@
 #include <functional>
 #include <vector>
 #include <stdexcept>
+#include <initializer_list>
+#include <experimental/optional>
 #include <sstream>
 #include <MemLeakTest.h>
 #include <Serialization.h>
