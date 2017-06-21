@@ -1,7 +1,7 @@
 project(point_op)
 
-set(HEDEAR_FILES Point.h)
-set(SOURCE_FILES Point.cpp)
+set(HEDEAR_FILES PointO.h)
+set(SOURCE_FILES PointO.cpp)
 
 add_library(libpoint_op STATIC ${SOURCE_FILES})
 target_include_directories(libpoint_op PUBLIC .)
