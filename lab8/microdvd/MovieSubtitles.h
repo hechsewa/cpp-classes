@@ -23,18 +23,22 @@ namespace moviesubs {
     /***************MicroDvDSubtitles******************/
     class MicroDvdSubtitles : public MovieSubtitles {
     public:
+        MicroDvdSubtitles()=default;
+        ~MicroDvdSubtitles(){};
         void ShiftAllSubtitlesBy(int delay, int fps, std::istream *in, std::ostream *out) override;
 
-        MicroDvdSubtitles()=default;
+
     private:
 
     };
     /****************SubRipSubtitles*******************/
     class SubRipSubtitles : public MovieSubtitles {
     public:
+        SubRipSubtitles()=default;
+        ~SubRipSubtitles(){};
         void ShiftAllSubtitlesBy(int delay, int fps, std::istream *in, std::ostream*out) override;
 
-        SubRipSubtitles()=default;
+
     private:
         void CompareTimes(std::smatch matches, std::string str, int counter, int delay);
     };

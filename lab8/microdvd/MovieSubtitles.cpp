@@ -59,22 +59,22 @@ namespace moviesubs{
             if(counter!=std::stoi(str)){
                 throw OutOfOrderFrames(); }
 
-            (*out)<<str <<'\n';
+            (*out) << str << '\n';
             getline(*in, str, '\n');
 
             if(std::regex_search(str, matches, pattern)){
                 CompareTimes(matches, str, counter, delay);
-                (*out)<<matches[1] << ":" << matches[2] << ":";
+                (*out) << matches[1] << ":" << matches[2] << ":";
                 int milisec=std::stoi(matches[4])+delay;
                 if(milisec<0) {
                     throw NegativeFrameAfterShift(str); }
                 /******start subtitles time******/
                 if(milisec<1000){
-                    std::string tmp = std::to_string(milisec);
-                    while(tmp.size()<3){
-                        tmp='0'+tmp;
+                    std::string tmp_ms = std::to_string(milisec);
+                    while(tmp_ms.size()<3){
+                        tmp_ms='0'+tmp_ms;
                     }
-                    (*out)<<matches[3]<<","<< tmp <<" --> ";
+                    (*out) << matches[3] << "," << tmp_ms <<" --> ";
                 }
                 else {
                     int sec = std::stoi(matches[3])+milisec/1000;
@@ -87,30 +87,30 @@ namespace moviesubs{
                     while(tmp_sec.size()<2) {
                         tmp_sec = '0' + tmp_sec;
                     }
-                    (*out)<<tmp_sec<<","<<tmp_ms<<" --> ";
+                    (*out) << tmp_sec << "," << tmp_ms << " --> ";
                 }
                 /*****end subtitles time*****/
                 (*out)<<matches[5]<<":"<<matches[6]<<":";
                 milisec = std::stoi(matches[8])+delay;
                 if(milisec<1000){
-                    std::string tmp_end_ms=std::to_string(milisec);
-                    while(tmp_end_ms.size()<3){
-                        tmp_end_ms='0'+tmp_end_ms;
+                    std::string tmp_ms=std::to_string(milisec);
+                    while(tmp_ms.size()<3){
+                        tmp_ms='0'+tmp_ms;
                     }
-                    (*out)<<matches[7]<<","<<tmp_end_ms<<" --> ";
+                    (*out) << matches[7] << "," << tmp_ms <<" --> ";
                 }
                 else{
                     int sec = std::stoi(matches[7])+milisec/1000;
                     milisec%=1000;
-                    std::string tmp_end_ms = std::to_string(milisec);
-                    while(tmp_end_ms.size()<3){
-                        tmp_end_ms='0'+tmp_end_ms;
+                    std::string tmp_ms = std::to_string(milisec);
+                    while(tmp_ms.size()<3){
+                        tmp_ms='0'+tmp_ms;
                     }
-                    std::string tmp_end_sec = std::to_string(sec);
-                    while(tmp_end_sec.size()<2){
-                        tmp_end_sec = '0'+tmp_end_sec;
+                    std::string tmp_sec = std::to_string(sec);
+                    while(tmp_sec.size()<2){
+                        tmp_sec = '0'+tmp_sec;
                     }
-                    (*out)<<tmp_end_sec<<","<<tmp_end_ms<<'\n';
+                    (*out)<<tmp_sec<<","<<tmp_ms<<'\n';
                 }
             }
             /**********letters or invalid numbers in subrip format**********/
